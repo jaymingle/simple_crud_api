@@ -2,7 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 
 const app = express()
-const PORT = 8080
+const port = process.env.PORT || 6500
 
 mongoose.connect('mongodb+srv://jaymingle:M6LFWkhe3S9Fe1m8@backend.0r5fr.mongodb.net/Node-API?retryWrites=true&w=majority&appName=Backend')
     .then(() => {
