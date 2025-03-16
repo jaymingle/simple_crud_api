@@ -1,16 +1,13 @@
 import express from 'express'
-import mongoose from 'mongoose'
+import connectDB from "./connectDB.js";
 
 const app = express()
-const port = process.env.PORT || 6500
+const port = process.env.PORT || 8080
 
-mongoose.connect('mongodb+srv://jaymingle:M6LFWkhe3S9Fe1m8@backend.0r5fr.mongodb.net/Node-API?retryWrites=true&w=majority&appName=Backend')
-    .then(() => {
-        console.log('MongoDB Connection Succesful')
-        app.listen(PORT, () => console.log("Server Running"))
-    })
-    .catch(() => console.error('MongoDB Connection Failed'))
+connectDB('mongodb+srv://jaymingle:M6LFWkhe3S9Fe1m8@backend.0r5fr.mongodb.net/Node-API?retryWrites=true&w=majority&appName=Backend')
 
+
+app.listen(port, () => console.log("Server Running"))
 app.get('/', (req, res) => {
     res.json({
         message: 'Server Running'
